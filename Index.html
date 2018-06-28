@@ -19,7 +19,7 @@
 		<h4>Sequenzen</h4>
 		<ul id="squenceList" class="nav nav-pills nav-stacked" ondragstart="drag(event)">
 			<li class="active" onclick="changeSequence(sqS1.id)">
-				<a id="sqE1" draggable="true">Hauptsquenz	</a>
+				<a id="sqE1" draggable="false">Hauptsequenz	</a>
 			</li>
 		</ul>
 		<br/>
@@ -36,8 +36,8 @@
 	<div id="sqSettings">
 		<div id="sqS1" class="col-sm-8">
 			<div class="row">
-				<div class="col-sm-10">
-					<div  id="headDiv">
+				<div class="col-sm-12">
+					<div>
 						<h2>I Love Food</h2>
 					</div>
 					<h5>
@@ -55,18 +55,11 @@
 					<br>
 					<br>
 				</div>
-				<div class="col-sm-2 text-center">
-				<div id="headDiv">
-					<h3>Sequnce Elements</h3>
-				</div>	
-					<ul>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-2 sidenav" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<h4>Procedure</h4>
+		<h4 id="sqeuenceName"></h4>
 		<ul id="resultList" class="nav nav-pills nav-stacked">
 		</ul>
 		<br/>
@@ -86,6 +79,6 @@
 </footer>
 
 <script src="./js/script.js"></script>
-
+<script src="./js/dragAndDrop.js"></script>
 </body>
 </html>

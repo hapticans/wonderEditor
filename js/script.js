@@ -2,8 +2,18 @@ var i = 1;
 var dragID;
 var color = [];
 
+
+class sequence {
+    constructor() {
+
+    }
+}
+
 window.onload = () =>{
-    $($(`#sqE1`)["0"].parentNode).clone().appendTo($(`#resultList`)["0"]);
+    $(`#sqS1`)["0"].sequence = "sqE1"
+    //$($(`#sqE1`)["0"].parentNode).clone().appendTo($(`#resultList`)["0"]);
+    $("#sqeuenceName")["0"].innerHTML = $("#sqE1")["0"].innerHTML;
+    var sequence1 = new sequence();
 }
 
 addSqeunce = () =>{
@@ -19,23 +29,16 @@ addSqeunce = () =>{
         a.id = `sqE${i}`;
         a.appendChild(document.createTextNode(sequName));
         li.appendChild(a);
-        li.onclick = function () { changeSequence(`sqS${i}`); };
+        var j = i;
+        li.onclick = function () { changeSequence(`sqS${j}`); };
         ul.appendChild(li);
+        var nextSequenceSetting = $(`#sqS1`).clone();
+        nextSequenceSetting["0"].sequence = `sqE${j}`;
+        nextSequenceSetting["0"].id = `sqS${j}`;
+        nextSequenceSetting["0"].style = `display:none`;
+        nextSequenceSetting["0"].innerHTML = "du";
+        $(`#sqSettings`)["0"].appendChild(nextSequenceSetting["0"]);
     }
-}
-
-allowDrop = (ev) =>{
-    ev.preventDefault();
-}
-
-drag = (ev) =>{
-    ev.dataTransfer.setData("text", ev.target.id);   
-}
-
-drop = (ev) =>{
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    $($(`#${data}`)["0"].parentNode).clone().appendTo(ev.path["0"].children[1]);
 }
 
 changeSequence = (sqID) =>{
@@ -44,8 +47,13 @@ changeSequence = (sqID) =>{
         if(sequenceSettings[i].id != sqID)
         {
             sequenceSettings[i].style = "display:none";
+            $(`#${sequenceSettings[i].sequence}`)["0"].parentNode.className = "";
+            $(`#${sequenceSettings[i].sequence}`)["0"].draggable = true; 
         }else{
             sequenceSettings[i].style = "display:true";
+            $("#sqeuenceName")["0"].innerHTML = $(`#${sequenceSettings[i].sequence}`)["0"].innerHTML;
+            $(`#${sequenceSettings[i].sequence}`)["0"].draggable = false;
+            $(`#${sequenceSettings[i].sequence}`)["0"].parentNode.className = "active";
         }
     }
 }
