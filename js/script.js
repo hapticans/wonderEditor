@@ -1,13 +1,18 @@
 var i = 1;
 
 addSqeunce = () =>{
-    var ul = document.getElementById("squenceList");
-    var li = document.createElement("li");
-    var a = document.createElement("a");
-    a.appendChild(document.createTextNode("hallo"))
-    li.appendChild(a);
-    ul.appendChild(li);
-    i++;
+    var sequName = prompt("Name für die Sequenz", `Sequenz ${i}`);
+
+    if (sequName == null || sequName == "") {
+    } else {
+        var ul = document.getElementById("squenceList");
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.appendChild(document.createTextNode(sequName))
+        li.appendChild(a);
+        ul.appendChild(li);
+        i++;
+    }
 }
 
 allowDrop = (ev) =>{
@@ -20,6 +25,5 @@ drag = (ev) =>{
 
 drop = (ev) =>{
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    $("#sq").clone().appendTo(ev.path["0"].children[1]);
 }
