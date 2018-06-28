@@ -2,6 +2,9 @@ var i = 1;
 var dragID;
 var color = [];
 
+window.onload = () =>{
+    $($(`#sqE1`)["0"].parentNode).clone().appendTo($(`#resultList`)["0"]);
+}
 
 addSqeunce = () =>{
     var sequName = prompt("Name für die Sequenz", `Sequenz ${i}`);
@@ -26,13 +29,12 @@ allowDrop = (ev) =>{
 }
 
 drag = (ev) =>{
-    ev.dataTransfer.setData("text", ev.target.id);
-    
+    ev.dataTransfer.setData("text", ev.target.id);   
 }
 
 drop = (ev) =>{
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");    
+    var data = ev.dataTransfer.getData("text");
     $($(`#${data}`)["0"].parentNode).clone().appendTo(ev.path["0"].children[1]);
 }
 
@@ -46,5 +48,9 @@ changeSequence = (sqID) =>{
             sequenceSettings[i].style = "display:true";
         }
     }
+}
+
+
+createButtons = () =>{
 
 }
