@@ -17,120 +17,60 @@
   <div class="row content">
 	<div class="col-sm-2 sidenav">
 		<h4>Sequenzen</h4>
-		<ul id="squenceList" class="nav nav-pills nav-stacked"ondragstart="">
-			<li id="sq" class="active" draggable="true">
-				<a id="sqEl" href="#section1">Hauptsquenz</a>
+		<ul id="squenceList" class="nav nav-pills nav-stacked" ondragstart="drag(event)">
+			<li class="active" onclick="changeSequence(sqS1.id)" draggable="true">
+				<a id="sqEl">Hauptsquenz	</a>
 			</li>
 		</ul>
 		<br>
-		<a href="javascript:addSqeunce()"><i class="fas fa-plus-square fa-6x" style="color:#22c913b2"></i></a>
-	</div>
-	<div class="col-sm-8">
-		<br>
-		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<div style="text-align: center;">
+					<a href="javascript:addSqeunce()">
+						<i class="fas fa-plus-square fa-6x text-center" style="color:#22c913b2; display: inline-block;"></i>
+					</a>
 		</div>
-		<br>
-		<img id="drag1" src="./img/img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+	</div>
+	<div class="col-sm-8"></div>
+	<div id="sqSettings">
+		<div id="sqS1" class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-10">
+					<div  id="headDiv">
+						<h2>I Love Food</h2>
+					</div>
+					<h5>
+						<span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+					<h5>
+						<span class="label label-danger">Food</span>
+						<span class="label label-primary">Ipsum</span>
+					</h5>
+					<br>
+					<p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+						adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<br>
+					<br>
+				</div>
+				<div class="col-sm-2 text-center">
+				<div id="headDiv">
+					<h3>Sequnce Elements</h3>
+				</div>	
+					<ul>
 
-		<h4>
-			<small>RECENT POSTS</small>
-		</h4>
-		<hr>
-		<h2>I Love Food</h2>
-		<h5>
-			<span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-		<h5>
-			<span class="label label-danger">Food</span>
-			<span class="label label-primary">Ipsum</span>
-		</h5>
-		<br>
-		<p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-			et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<br>
-		<br>
-	
-		<h4>
-			<small>RECENT POSTS</small>
-		</h4>
-		<hr>
-		<h2>Officially Blogging</h2>
-		<h5>
-			<span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-		<h5>
-			<span class="label label-success">Lorem</span>
-		</h5>
-		<br>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-			occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit,
-			sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-			laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<hr>
-	
-		<h4>Leave a Comment:</h4>
-		<form role="form">
-			<div class="form-group">
-				<textarea class="form-control" rows="3" required></textarea>
-			</div>
-			<button type="submit" class="btn btn-success">Submit</button>
-		</form>
-		<br>
-		<br>
-	
-		<p>
-			<span class="badge">2</span> Comments:</p>
-		<br>
-	
-		<div class="row">
-			<div class="col-sm-2 text-center">
-			</div>
-			<div class="col-sm-10">
-				<h4>Anja
-					<small>Sep 29, 2015, 9:12 PM</small>
-				</h4>
-				<p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-				<br>
-			</div>
-			<div class="col-sm-2 text-center">
-			</div>
-			<div class="col-sm-10">
-				<h4>John Row
-					<small>Sep 25, 2015, 8:25 PM</small>
-				</h4>
-				<p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<br>
-				<p>
-					<span class="badge">1</span> Comment:</p>
-				<br>
-				<div class="row">
-					<div class="col-sm-2 text-center">
-					</div>
-					<div class="col-xs-10">
-						<h4>Nested Bro
-							<small>Sep 25, 2015, 8:28 PM</small>
-						</h4>
-						<p>Me too! WOW!</p>
-						<br>
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-2 sidenav" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<h4>Sequenzen</h4>
+		<h4>Procedure</h4>
 		<ul id="resultList" class="nav nav-pills nav-stacked">
 			<li class="active">
 				<a href="#section1">Home</a>
 			</li>
 		</ul>
 	</div>
-
-
   </div>
 </div>
 
