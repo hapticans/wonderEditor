@@ -1,6 +1,11 @@
 var i = 1;
 var dragID;
-var color = [];
+var color = [
+    ["grün","#4CAF50"], 
+    ["blau", "#372db6"], 
+    ["gelb", "#c5ba1f"], 
+    ["rot","#ca2a2a"]
+];
 
 
 class sequence {
@@ -83,19 +88,28 @@ createButtons = (val) =>{
 }
 
 addButton = (val) => {
-    console.log($(`#squenceList`)["0"].children);
-    
+    var value = JSON.parse(val);
+    var elementFarbe;
+    for (let i = 0; i < color.length; i++) {
+        if (color[i][0] == value.farbe) {
+            elementFarbe = color[i][1];  
+        }
+    }
     for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
         if ($(`#squenceList`)["0"].children[i].className == "active"){
             var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;            
             for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
                 if ($(`#sqSettings`)["0"].children[j].sequence == sqEID){
-                    $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(document.createTextNode("hi"));
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.draggable = true;
+                    a.appendChild(document.createTextNode(`Konsole ${value.konsole}`));
+                    a.style = `background-color: ${elementFarbe}; color:black`;
+                    li.appendChild(a);
+                    $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(li);
                 }
             }
             //$(`#${$(`#squenceList`)["0"].children[i].result}`)["0"].appendChild(document.createTextNode(val));
         }
-        
     }
-    console.log(val);
 }
