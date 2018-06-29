@@ -1,22 +1,3 @@
-var i = 1;
-var dragID;
-var color = [
-    ["grün","#4CAF50"], 
-    ["blau", "#372db6"], 
-    ["gelb", "#c5ba1f"], 
-    ["rot","#ca2a2a"]
-];
-
-
-class sequence {
-    constructor(name) {
-        this.name = name;
-        this.order = false;
-        this.count = 1;
-        this.list = [];
-    }
-}
-
 window.onload = () =>{
     $(`#sqS1`)["0"].sequence = "sqE1";
     $(`#sqS1`)["0"].result = "sqR1";
@@ -159,5 +140,46 @@ getList = (sqSID) =>{
             }
         }
     }
-    console.log($(`#${sqSID}`)["0"].object.list);
+}
+
+
+createFile = () =>{
+    var str = "";
+    for (let i = 0; i < $(`#sqSettings`)["0"].children.length; i++) {
+        str = str + createLine(i)+"\n";
+    }
+    
+    if(str.includes(null)){
+        return false;
+    }
+
+    var name = "sequence.txt";
+    download(name,str);
+}
+
+createLine = (i) =>{
+    var obj = $(`#sqSettings`)["0"].children[i].object;
+    var str = `${obj.name}:${obj.count},${obj.order}`;
+    for (let i = 0; i < obj.list.length; i++) {
+        str = `${str},${buttonRename(obj.list[i])}`;
+    }
+    if(obj.count > obj.list.length){
+        alert(`In ${obj.name} wird mehr gefordert, als vorhanden ist.`)
+        return null;
+    }
+    str = `${str};`;
+    return str;
+}
+
+download = (filename, text) => {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }

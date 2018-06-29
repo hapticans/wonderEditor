@@ -21,6 +21,7 @@ drop = (ev) => {
                 for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
                     if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
                         cloneNode["0"].wert = data;
+                        cloneNode["0"].children["0"].style.backgroundColor = "black";
                         if (sqEID.slice(-1) * 1 < data.slice(-1) * 1) {
                             $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(cloneNode["0"]);
                             getList($(`#sqSettings`)["0"].children[j].id);
@@ -62,5 +63,3 @@ del = (ev) =>{
         }
     }
 }
-
-$('.sortable').sortable();
