@@ -9,7 +9,8 @@ var color = [
 
 
 class sequence {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.order = false;
         this.count = 1;
         this.list = [];
@@ -19,7 +20,7 @@ class sequence {
 window.onload = () =>{
     $(`#sqS1`)["0"].sequence = "sqE1";
     $(`#sqS1`)["0"].result = "sqR1";
-    var sqObject = new sequence();
+    var sqObject = new sequence("sqE1");
     $(`#sqS1`)["0"].object = sqObject;
     //$($(`#sqE1`)["0"].parentNode).clone().appendTo($(`#resultList`)["0"]);
     $("#sqeuenceName")["0"].innerHTML = $("#sqE1")["0"].innerHTML;
@@ -52,7 +53,7 @@ addSequence = () =>{
         nextSequenceSetting["0"].result = `sqR${j}`;
         nextSequenceSetting["0"].id = `sqS${j}`;
         nextSequenceSetting["0"].style = `display:none`;
-        var sqObject = new sequence();
+        var sqObject = new sequence(`sqE${j}`);
         nextSequenceSetting["0"].object = sqObject;
         var nextSequenceResult = $(`#dummyResultList`).clone();
         nextSequenceResult["0"].id = `sqR${j}`;
@@ -112,6 +113,7 @@ changeNumberButtons = (val) => {
 addButton = (val) => {
     var value = JSON.parse(val);
     var elementFarbe;
+    var sqSID = null;
     for (let i = 0; i < color.length; i++) {
         if (color[i][0] == value.farbe) {
             elementFarbe = color[i][1];  
@@ -122,20 +124,40 @@ addButton = (val) => {
             var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;            
             for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
                 if ($(`#sqSettings`)["0"].children[j].sequence == sqEID){
+                    sqSID = $(`#sqSettings`)["0"].children[j].id;
                     var li = document.createElement("li");
                     var a = document.createElement("a");
                     a.draggable = true;
+                    a.id = value.farbe + "" + value.konsole;
                     a.appendChild(document.createTextNode(`Konsole ${value.konsole}`));
                     a.style = `background-color: ${elementFarbe}; color:black`;
                     li.appendChild(a);
+                    li.wert = value.farbe+""+ value.konsole;
                     $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(li);
                 }
             }
             //$(`#${$(`#squenceList`)["0"].children[i].result}`)["0"].appendChild(document.createTextNode(val));
         }
     }
+    if(sqSID != null){
+        getList(sqSID);
+    }
 }
 
-tester = () =>{
-    console.log("hi");
+
+getList = (sqSID) =>{
+    for (let i = 1; i < $(`#resultList`)["0"].children.length; i++) {
+        if ($(`#resultList`)["0"].children[i].style.display != "none"){
+            for (let j = 0; j < $(`#resultList`)["0"].children[i].children.length; j++) {
+                if(j==0){
+                    $(`#${sqSID}`)["0"].object.list = [];    
+                }
+                $(`#${sqSID}`)["0"].object.list.push($(`#resultList`)["0"].children[i].children[j].wert);
+            }
+            if ($(`#resultList`)["0"].children[i].children.length == 0){
+                $(`#${sqSID}`)["0"].object.list = [];
+            }
+        }
+    }
+    console.log($(`#${sqSID}`)["0"].object.list);
 }

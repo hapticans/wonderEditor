@@ -31,46 +31,161 @@
 							<i class="fas fa-plus-square fa-6x text-center" style="color:#22c913b2; display: inline-block;"></i>
 						</a>
 			</div>
+			<div style="text-align: center;">
+						<a id="trash" ondrop="del(event)" ondragover="allowDrop(event)">
+							<i class="fas fa-trash fa-6x text-center" style="color:#da1010b2; display: inline-block;"></i>
+						</a>
+			</div>
 		</div>
 		<div class="col-sm-8"></div>
 		<div id="sqSettings">
 			<div id="sqS1" class="col-sm-8">
-				<div class="row">
-					<div class="col-sm-12">
+				<h4 id="sqeuenceSettingName"></h4>
+				<div class="toggle">
+					<label> In Reihenfolge:
+						<input type="checkbox" id="inOrder" onchange="changeOrder(this.checked)">
+						<span class="slider"></span>
+					</label>
+				</div>
+				<label> Anzahl benötigter Buttons:
+					<br/>
+					<input type="number" id="needButtons" value="2" onchange="changeNumberButtons(this.value)">
+				</label>
+				<div>
+					<div class="col-sm-3">
+			
+					</div>
+					<div class="col-sm-3">
+			
+					</div>
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 5</h4>
 						<div>
-							<h4 id="sqeuenceSettingName"></h4>
-							<div class="toggle">
-								<label> In Reihenfolge:
-									<input type="checkbox" id="inOrder" onchange="createButtons(this.checked)">
-									<span class="slider"></span>
-								</label>
+							<div class="col-sm-6">
+								<button id="rot5" value='{ "farbe":"rot", "konsole":5}' class="button button1" onclick="addButton(this.value)">
 							</div>
-							<label> Anzahl benötigter Buttons:
-								<br/>
-								<input type="number" id="needButtons" value="2" onchange="createButtons(this.value)">
-							</label>
+							<div class="col-sm-6">
+								<button id="blau5" value='{ "farbe":"blau", "konsole":5}' class="button button2" onclick="addButton(this.value)">
+							</div>
 						</div>
-						<h5>
-							<span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-						<h5>
-							<span class="label label-danger">Food</span>
-							<span class="label label-primary">Ipsum</span>
-						</h5>
-						<br>
-						<p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-							adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<br>
-						<br>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb5" value='{ "farbe":"gelb", "konsole":5}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün5" value='{ "farbe":"grün", "konsole":5}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 6</h4>
+						<div>
+							<div class="col-sm-6">
+								<button id="rot6" value='{ "farbe":"rot", "konsole":6}' class="button button1" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="blau6" value='{ "farbe":"blau", "konsole":6}' class="button button2" onclick="addButton(this.value)">
+							</div>
+						</div>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb6" value='{ "farbe":"gelb", "konsole":6}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün6" value='{ "farbe":"grün", "konsole":6}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 1</h4>
+						<div>
+							<div class="col-sm-6">
+								<button id="rot1" value='{ "farbe":"rot", "konsole":1}' class="button button1" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="blau1" value='{ "farbe":"blau", "konsole":1}' class="button button2" onclick="addButton(this.value)">
+							</div>
+						</div>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb1" value='{ "farbe":"gelb", "konsole":1}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün1" value='{ "farbe":"grün", "konsole":1}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 2</h4>
+						<div>
+							<div class="col-sm-6">
+								<button id="rot2" value='{ "farbe":"rot", "konsole":2}' class="button button1" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="blau2" value='{ "farbe":"blau", "konsole":2}' class="button button2" onclick="addButton(this.value)">
+							</div>
+						</div>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb2" value='{ "farbe":"gelb", "konsole":2}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün2" value='{ "farbe":"grün", "konsole":2}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 3</h4>
+						<div>
+							<div class="col-sm-6">
+								<button id="rot3" value='{ "farbe":"rot", "konsole":3}' class="button button1" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="blau3" value='{ "farbe":"blau", "konsole":3}' class="button button2" onclick="addButton(this.value)">
+							</div>
+						</div>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb3" value='{ "farbe":"gelb", "konsole":3}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün3" value='{ "farbe":"grün", "konsole":3}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 konsole">
+						<h4>Konsole 4</h4>
+						<div>
+							<div class="col-sm-6">
+								<button id="rot4" value='{ "farbe":"rot", "konsole":4}' class="button button1" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="blau4" value='{ "farbe":"blau", "konsole":4}' class="button button2" onclick="addButton(this.value)">
+							</div>
+						</div>
+						<div class="row"></div>
+						<div>
+							<div class="col-sm-6">
+								<button id="gelb4" value='{ "farbe":"gelb", "konsole":4}' class="button button3" onclick="addButton(this.value)">
+							</div>
+							<div class="col-sm-6">
+								<button id="grün4" value='{ "farbe":"grün", "konsole":4}' class="button button4" onclick="addButton(this.value)">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="resultList" class="col-sm-2 sidenav" ondrop="drop(event)" ondragover="allowDrop(event)">
 			<h4 id="sqeuenceName"></h4>
-			<ul id="sqR1" class="nav nav-pills nav-stacked">
+			<ul id="sqR1" class="nav nav-pills nav-stacked  sortable" ondragstart="dragDel(event)">
 			</ul>
 			<!--<div style="text-align: center;">
 				<a href="javascript:addSeqeunce()">
@@ -100,15 +215,50 @@
 		<div class="col-sm-3">
 		
 		</div>
-		<div class="col-sm-3">
-			<p>hi</p>
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 5</h4>
+			<div>
+				<div class="col-sm-6">
+					<button id="rot5" value='{ "farbe":"rot", "konsole":5}' class="button button1" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="blau5" value='{ "farbe":"blau", "konsole":5}' class="button button2" onclick="addButton(this.value)">
+				</div>
+			</div>
+			<div class="row"></div>
+			<div>
+				<div class="col-sm-6">
+					<button id="gelb5" value='{ "farbe":"gelb", "konsole":5}' class="button button3" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="grün5" value='{ "farbe":"grün", "konsole":5}' class="button button4" onclick="addButton(this.value)">
+				</div>
+			</div>
 		</div>
-		<div class="col-sm-3">
-			<p>hi</p>
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 6</h4>
+			<div>
+				<div class="col-sm-6">
+					<button id="rot6" value='{ "farbe":"rot", "konsole":6}' class="button button1" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="blau6" value='{ "farbe":"blau", "konsole":6}' class="button button2" onclick="addButton(this.value)">
+				</div>
+			</div>
+			<div class="row"></div>
+			<div>
+				<div class="col-sm-6">
+					<button id="gelb6" value='{ "farbe":"gelb", "konsole":6}' class="button button3" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="grün6" value='{ "farbe":"grün", "konsole":6}' class="button button4" onclick="addButton(this.value)">
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 1</h4>
 			<div>
 				<div class="col-sm-6">
 					<button id="rot1" value='{ "farbe":"rot", "konsole":1}' class="button button1" onclick="addButton(this.value)">
@@ -120,41 +270,78 @@
 			<div class="row"></div>
 			<div>
 				<div class="col-sm-6">
-					<button class="button button3">
+					<button id="gelb1" value='{ "farbe":"gelb", "konsole":1}' class="button button3" onclick="addButton(this.value)">
 				</div>
 				<div class="col-sm-6">
-					<button class="button button4">
+					<button id="grün1" value='{ "farbe":"grün", "konsole":1}' class="button button4" onclick="addButton(this.value)">
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-3">
-			<p>hi</p>
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 2</h4>
+			<div>
+				<div class="col-sm-6">
+					<button id="rot2" value='{ "farbe":"rot", "konsole":2}' class="button button1" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="blau2" value='{ "farbe":"blau", "konsole":2}' class="button button2" onclick="addButton(this.value)">
+				</div>
+			</div>
+			<div class="row"></div>
+			<div>
+				<div class="col-sm-6">
+					<button id="gelb2" value='{ "farbe":"gelb", "konsole":2}' class="button button3" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="grün2" value='{ "farbe":"grün", "konsole":2}' class="button button4" onclick="addButton(this.value)">
+				</div>
+			</div>
 		</div>
-		<div class="col-sm-3">
-			<p>hi</p>
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 3</h4>
+			<div>
+				<div class="col-sm-6">
+					<button id="rot3" value='{ "farbe":"rot", "konsole":3}' class="button button1" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="blau3" value='{ "farbe":"blau", "konsole":3}' class="button button2" onclick="addButton(this.value)">
+				</div>
+			</div>
+			<div class="row"></div>
+			<div>
+				<div class="col-sm-6">
+					<button id="gelb3" value='{ "farbe":"gelb", "konsole":3}' class="button button3" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="grün3" value='{ "farbe":"grün", "konsole":3}' class="button button4" onclick="addButton(this.value)">
+				</div>
+			</div>
 		</div>
-		<div class="col-sm-3">
-			<p>hi</p>
+		<div class="col-sm-3 konsole">
+			<h4>Konsole 4</h4>
+			<div>
+				<div class="col-sm-6">
+					<button id="rot4" value='{ "farbe":"rot", "konsole":4}' class="button button1" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="blau4" value='{ "farbe":"blau", "konsole":4}' class="button button2" onclick="addButton(this.value)">
+				</div>
+			</div>
+			<div class="row"></div>
+			<div>
+				<div class="col-sm-6">
+					<button id="gelb4" value='{ "farbe":"gelb", "konsole":4}' class="button button3" onclick="addButton(this.value)">
+				</div>
+				<div class="col-sm-6">
+					<button id="grün4" value='{ "farbe":"grün", "konsole":4}' class="button button4" onclick="addButton(this.value)">
+				</div>
+			</div>
 		</div>
 	</div>
-	<h5>
-		<span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-	<h5>
-		<span class="label label-danger">Food</span>
-		<span class="label label-primary">Ipsum</span>
-	</h5>
-	<br>
-	<p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-		et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-		consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	<br>
-	<br>
 </div>
 
 
-<ul id="dummyResultList" class="nav nav-pills nav-stacked" style="display:none" onchange="tester()">
+<ul id="dummyResultList" class="nav nav-pills nav-stacked sortable" style="display:none">
 </ul>
 
 
@@ -163,6 +350,7 @@
 </footer>
 
 <script src="./js/script.js"></script>
+<script src="./js/jquery.sortable.min.js"></script>
 <script src="./js/dragAndDrop.js"></script>
 </body>
 </html>
