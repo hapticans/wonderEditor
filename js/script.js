@@ -83,8 +83,30 @@ changeSequence = (sqID) =>{
 }
 
 
-createButtons = (val) =>{
-    console.log(val);
+changeOrder = (val) =>{
+    for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+        if ($(`#squenceList`)["0"].children[i].className == "active") {
+            var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;
+            for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
+                    $(`#sqSettings`)["0"].children[j].object.order = val;
+                }
+            }
+        }
+    }
+}
+
+changeNumberButtons = (val) => {
+    for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+        if ($(`#squenceList`)["0"].children[i].className == "active") {
+            var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;
+            for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
+                    $(`#sqSettings`)["0"].children[j].object.count = val;                    
+                }
+            }
+        }
+    }
 }
 
 addButton = (val) => {
@@ -112,4 +134,8 @@ addButton = (val) => {
             //$(`#${$(`#squenceList`)["0"].children[i].result}`)["0"].appendChild(document.createTextNode(val));
         }
     }
+}
+
+tester = () =>{
+    console.log("hi");
 }

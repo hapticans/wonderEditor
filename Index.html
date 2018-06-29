@@ -85,13 +85,13 @@
 	<h4 id="sqeuenceSettingName"></h4>
 	<div class="toggle">
 		<label> In Reihenfolge:
-			<input type="checkbox" id="inOrder" onchange="createButtons(this.checked)">
+			<input type="checkbox" id="inOrder" onchange="changeOrder(this.checked)">
 			<span class="slider"></span>
 		</label>
 	</div>
 	<label> Anzahl benötigter Buttons:
 		<br/>
-		<input type="number" id="needButtons" value="2" onchange="createButtons(this.value)">
+		<input type="number" id="needButtons" value="2" onchange="changeNumberButtons(this.value)">
 	</label>
 	<div>
 		<div class="col-sm-3">
@@ -154,7 +154,7 @@
 </div>
 
 
-<ul id="dummyResultList" class="nav nav-pills nav-stacked" style="display:none">
+<ul id="dummyResultList" class="nav nav-pills nav-stacked" style="display:none" onchange="tester()">
 </ul>
 
 
