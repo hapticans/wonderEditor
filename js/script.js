@@ -7,7 +7,7 @@ class sequence {
     constructor() {
         this.order = false;
         this.count = 1;
-        this.list = null;
+        this.list = [];
     }
 }
 
@@ -18,6 +18,7 @@ window.onload = () =>{
     $(`#sqS1`)["0"].object = sqObject;
     //$($(`#sqE1`)["0"].parentNode).clone().appendTo($(`#resultList`)["0"]);
     $("#sqeuenceName")["0"].innerHTML = $("#sqE1")["0"].innerHTML;
+    $("#sqeuenceSettingName")["0"].innerHTML = $("#sqE1")["0"].innerHTML;     
 }
 
 addSequence = () =>{
@@ -36,12 +37,17 @@ addSequence = () =>{
         var j = i;
         li.onclick = function () { changeSequence(`sqS${j}`); };
         ul.appendChild(li);
-        var nextSequenceSetting = $(`#sqS1`).clone();
+        var nextSequenceSetting = $(`#dummySquence`).clone();
+        for (let i = 0; i < nextSequenceSetting["0"].children.length; i++) {
+            if (nextSequenceSetting["0"].children[i].id == "sqeuenceSettingName"){
+                nextSequenceSetting["0"].children[i].innerHTML = sequName;
+            }
+        }
         nextSequenceSetting["0"].sequence = `sqE${j}`;
         nextSequenceSetting["0"].result = `sqR${j}`;
         nextSequenceSetting["0"].id = `sqS${j}`;
         nextSequenceSetting["0"].style = `display:none`;
-        nextSequenceSetting["0"].innerHTML = "du";
+        var sqObject = new sequence();
         nextSequenceSetting["0"].object = sqObject;
         var nextSequenceResult = $(`#dummyResultList`).clone();
         nextSequenceResult["0"].id = `sqR${j}`;
@@ -52,7 +58,6 @@ addSequence = () =>{
 }
 
 changeSequence = (sqID) =>{
-    console.log($(`#${sqID}`    )["0"].object.order);
     var sequenceSettings = $("#sqSettings")["0"].children;
     for (let i = 0; i < sequenceSettings.length; i++) {
         if(sequenceSettings[i].id != sqID)
@@ -64,6 +69,7 @@ changeSequence = (sqID) =>{
         }else{            
             sequenceSettings[i].style = "display:true";
             $("#sqeuenceName")["0"].innerHTML = $(`#${sequenceSettings[i].sequence}`)["0"].innerHTML;
+            $("#sqeuenceSettingName")["0"].innerHTML = $(`#${sequenceSettings[i].sequence}`)["0"].innerHTML;
             $(`#${sequenceSettings[i].sequence}`)["0"].draggable = false;
             $(`#${sequenceSettings[i].sequence}`)["0"].parentNode.className = "active";
             $(`#${sequenceSettings[i].result}`)["0"].style = "display:true";
@@ -72,6 +78,24 @@ changeSequence = (sqID) =>{
 }
 
 
-createButtons = () =>{
+createButtons = (val) =>{
+    console.log(val);
+}
 
+addButton = (val) => {
+    console.log($(`#squenceList`)["0"].children);
+    
+    for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+        if ($(`#squenceList`)["0"].children[i].className == "active"){
+            var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;            
+            for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                if ($(`#sqSettings`)["0"].children[j].sequence == sqEID){
+                    $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(document.createTextNode("hi"));
+                }
+            }
+            //$(`#${$(`#squenceList`)["0"].children[i].result}`)["0"].appendChild(document.createTextNode(val));
+        }
+        
+    }
+    console.log(val);
 }
