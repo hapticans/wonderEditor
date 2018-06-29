@@ -163,8 +163,8 @@ createLine = (i) =>{
     for (let i = 0; i < obj.list.length; i++) {
         str = `${str},${buttonRename(obj.list[i])}`;
     }
-    if(obj.count > obj.list.length){
-        alert(`In ${obj.name} wird mehr gefordert, als vorhanden ist.`)
+    if(obj.count > obj.list.length){        
+        alert(`In ${$(`#${obj.name}`)["0"].innerHTML} wird mehr gefordert, als vorhanden ist.`)
         return null;
     }
     str = `${str};`;
