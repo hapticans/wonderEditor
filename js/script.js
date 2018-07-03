@@ -125,6 +125,80 @@ addButton = (val) => {
     }
 }
 
+addDreh = (val) => {
+    var value = JSON.parse(val);
+    console.log(value.richtung);
+    
+    var elementFarbe = "purple";
+    var sqSID = null;
+    for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+        if ($(`#squenceList`)["0"].children[i].className == "active") {
+            var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;
+            for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
+                    sqSID = $(`#sqSettings`)["0"].children[j].id;
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.draggable = true;
+                    a.id = value.richtung + "" + value.nummer;
+                    a.appendChild(document.createTextNode(`Drehknopf # ${value.nummer} - ${value.richtung}`));
+                    a.style = `background-color: ${elementFarbe}; color:white`;
+                    li.appendChild(a);
+                    li.wert = value.richtung + "" + value.nummer;
+                    $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(li);
+                }
+            }
+            //$(`#${$(`#squenceList`)["0"].children[i].result}`)["0"].appendChild(document.createTextNode(val));
+        }
+    }
+    if (sqSID != null) {
+        getList(sqSID);
+    }
+}
+
+changeDreh = (val, id) =>{
+    var value = JSON.parse(val);
+    if(value.richtung == "rechts"){
+        value.richtung = "links";
+        for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+            if ($(`#squenceList`)["0"].children[i].className == "active") {
+                var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;
+                for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                    if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
+                        sqSID = $(`#sqSettings`)["0"].children[j].id;
+                        var drehArray = $(`#${sqSID}`).find($(`.dreh`));
+                        for (let index = 0; index < drehArray.length; index++) {
+                            if (drehArray[index].id == id) {
+                                drehArray[index].value = JSON.stringify(value);
+                                drehArray[index].innerHTML = `L${value.nummer}`;
+                            }   
+                        }
+                    }
+                }
+            }
+        }
+    }else{
+        value.richtung = "rechts";
+        for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
+            if ($(`#squenceList`)["0"].children[i].className == "active") {
+                var sqEID = $(`#squenceList`)["0"].children[i].children["0"].id;
+                for (let j = 0; j < $(`#sqSettings`)["0"].children.length; j++) {
+                    if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
+                        sqSID = $(`#sqSettings`)["0"].children[j].id;
+                        var drehArray = $(`#${sqSID}`).find($(`.dreh`));
+                        for (let index = 0; index < drehArray.length; index++) {
+                            if (drehArray[index].id == id) {
+                                drehArray[index].value = JSON.stringify(value);
+                                drehArray[index].innerHTML = `R${value.nummer}`;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 getList = (sqSID) =>{
     for (let i = 1; i < $(`#resultList`)["0"].children.length; i++) {
@@ -134,6 +208,8 @@ getList = (sqSID) =>{
                     $(`#${sqSID}`)["0"].object.list = [];    
                 }
                 $(`#${sqSID}`)["0"].object.list.push($(`#resultList`)["0"].children[i].children[j].wert);
+                console.log($(`#${sqSID}`)["0"].object.list);
+                
             }
             if ($(`#resultList`)["0"].children[i].children.length == 0){
                 $(`#${sqSID}`)["0"].object.list = [];
@@ -160,6 +236,8 @@ createFile = () =>{
 createLine = (i) =>{
     var obj = $(`#sqSettings`)["0"].children[i].object;
     var str = `${obj.name}:${obj.count},${obj.order}`;
+    console.log(obj);
+    
     for (let i = 0; i < obj.list.length; i++) {
         str = `${str},${buttonRename(obj.list[i])}`;
     }

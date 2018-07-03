@@ -131,6 +131,17 @@ footer {
     width: 10%;
 }
 
+.dreh {
+    border: none;
+    color: white;
+    padding: 7px;
+    text-align: left;
+	font-size: 16px;
+	margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 .button1 {background-color: #ca2a2a}
 .button2 {background-color: #372db6}
 .button3 {background-color: #c5ba1f}
