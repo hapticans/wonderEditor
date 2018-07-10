@@ -32,11 +32,11 @@ buttonRename = (short) =>{
         color = "Gruen";
         return `Konsole${numb}_${color}_Button`;
     }else if(color == "rechts"){
-        color = "Rechts";
-        return `Drehknopf${numb}_${color}`;
+        color = "R";
+        return `Knob_${numb}_${color}`;
     }else if(color == "links"){
-        color = "Links";
-        return `Drehknopf${numb}_${color}`;
+        color = "L";
+        return `Knob_${numb}_${color}`;
     }else{
         return short;
     }
