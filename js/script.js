@@ -111,7 +111,11 @@ addButton = (val) => {
                     a.draggable = true;
                     a.id = value.farbe + "" + value.konsole;
                     a.appendChild(document.createTextNode(`Konsole ${value.konsole}`));
-                    a.style = `background-color: ${elementFarbe}; color:black`;
+                    if (elementFarbe != "#372db6"){
+                        a.style = `background-color: ${elementFarbe}; color:black`;
+                    }else{
+                        a.style = `background-color: ${elementFarbe}; color:white`;
+                    }
                     li.appendChild(a);
                     li.wert = value.farbe+""+ value.konsole;
                     $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(li);
