@@ -226,7 +226,7 @@ getList = (sqSID) =>{
 createFile = () =>{
     var str = "";
     for (let i = 0; i < $(`#sqSettings`)["0"].children.length; i++) {
-        str = str + createLine(i)+"\n";
+        str = str + createLine(i);
     }
     
     if(str.includes(null)){
