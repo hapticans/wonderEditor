@@ -28,24 +28,29 @@
 			<br/>
 			<br/>
 			<div style="text-align: center;">
-						<a href="javascript:addSequence()">
-							<i class="fas fa-plus-square fa-6x text-center" style="color:#22c913b2; display: inline-block;"></i>
-						</a>
+				<a href="javascript:addSequence()">
+					<i class="fas fa-plus-square fa-6x text-center" style="color:#22c913b2; display: inline-block;"></i>
+				</a>
+				<a id="save" href="javascript:addRandom()">
+					<i class="fas fa-dice fa-6x text-center" style="color:blue; display: inline-block;"></i>
+				</a>
 			</div>
+			<br>
 			<div style="text-align: center;">
-						<a id="trash" ondrop="del(event)" ondragover="allowDrop(event)">
-							<i class="fas fa-trash fa-6x text-center" style="color:#da1010b2; display: inline-block;"></i>
-						</a>
-			</div>
-			<div style="text-align: center;">
+				<a id="trash" ondrop="del(event)" ondragover="allowDrop(event)">
+					<i class="fas fa-trash fa-6x text-center" style="color:#da1010b2; display: inline-block;"></i>
+				</a>
 				<a id="save" href="javascript:createFile()">
 					<i class="fas fa-save fa-6x text-center" style="color:black; display: inline-block;"></i>
 				</a>
 			</div>
+			<br>
 			<div style="text-align: center;">
-				<a id="save" href="javascript:addRandom()">
-					<i class="fas fa-dice fa-6x text-center" style="color:blue; display: inline-block;"></i>
-				</a>
+				<span>Import:</span>
+				<input id="gpsinput" type="file" onchange="ReadFile(event)">
+			</div>
+			<div style="text-align: center;">
+				
 			</div>
 		</div>
 		<div class="col-sm-8"></div>

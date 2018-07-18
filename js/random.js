@@ -5,25 +5,28 @@ var addRandom=()=>{
     if (sqeuenceAnzahl >= 9){
         alert("Bitte kleiner als 9")
         return null;
-    }
-    var buttonAnzahl = prompt("Anzahl der Buttons pro Squenz")*1;
-    var knobProzent = prompt("Wahrscheinlichkeit für Drehknöpfe in %")*1;
-    changeRandomOrder(true);
-    changeRandomNumber($('#squenceList')["0"].children.length + sqeuenceAnzahl-1,true);
-    for (let index = 0; index < sqeuenceAnzahl; index++) {
-        addSequence(`sqE${$(`#sqSettings`)["0"].children.length + 1}`);
-        addSequences(`sqE${$(`#sqSettings`)["0"].children.length}`);
-        changeSequence(`sqS${$(`#sqSettings`)["0"].children.length}`);
-        changeRandomOrder();
-        changeRandomNumber(buttonAnzahl);
-        for (let index = 0; index < buttonAnzahl; index++) {
-            if (Math.floor(Math.random() * 101) > 100-knobProzent) {
-                addRandomDreh();
-            } else {
-                addRandomButton();
-            }   
+    }else if(sqeuenceAnzahl != 0){
+        var buttonAnzahl = prompt("Anzahl der Buttons pro Squenz")*1;
+        if (buttonAnzahl != 0){
+            var knobProzent = prompt("Wahrscheinlichkeit für Drehknöpfe in %")*1;
+            changeRandomOrder(true);
+            changeRandomNumber($('#squenceList')["0"].children.length + sqeuenceAnzahl-1,true);
+            for (let index = 0; index < sqeuenceAnzahl; index++) {
+                addSequence(`sqE${$(`#sqSettings`)["0"].children.length + 1}`);
+                addSequences(`sqE${$(`#sqSettings`)["0"].children.length}`);
+                changeSequence(`sqS${$(`#sqSettings`)["0"].children.length}`);
+                changeRandomOrder();
+                changeRandomNumber(buttonAnzahl);
+                for (let index = 0; index < buttonAnzahl; index++) {
+                    if (Math.floor(Math.random() * 101) > 100-knobProzent) {
+                        addRandomDreh();
+                    } else {
+                        addRandomButton();
+                    }   
+                }
+                changeSequence(`sqS1`);
+            }
         }
-        changeSequence(`sqS1`);
     }
 }
 
