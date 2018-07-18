@@ -8,8 +8,13 @@ window.onload = () =>{
     $("#sqeuenceSettingName")["0"].innerHTML = $("#sqE1")["0"].innerHTML;     
 }
 
-addSequence = () =>{
-    var sequName = prompt("Name für die Sequenz:", `Sequenz ${i}`);
+addSequence = (auto) =>{
+    var sequName;
+    if(auto == undefined){
+        sequName = prompt("Name für die Sequenz:", `Sequenz ${i}`);
+    }else{
+        sequName = auto;
+    }
 
     if (sequName == null || sequName == "") {
     } else {
@@ -130,9 +135,7 @@ addButton = (val) => {
 }
 
 addDreh = (val) => {
-    var value = JSON.parse(val);
-    console.log(value.richtung);
-    
+    var value = JSON.parse(val);    
     var elementFarbe = "purple";
     var sqSID = null;
     for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
@@ -211,9 +214,7 @@ getList = (sqSID) =>{
                 if(j==0){
                     $(`#${sqSID}`)["0"].object.list = [];    
                 }
-                $(`#${sqSID}`)["0"].object.list.push($(`#resultList`)["0"].children[i].children[j].wert);
-                console.log($(`#${sqSID}`)["0"].object.list);
-                
+                $(`#${sqSID}`)["0"].object.list.push($(`#resultList`)["0"].children[i].children[j].wert);                
             }
             if ($(`#resultList`)["0"].children[i].children.length == 0){
                 $(`#${sqSID}`)["0"].object.list = [];
@@ -240,7 +241,6 @@ createFile = () =>{
 createLine = (i) =>{
     var obj = $(`#sqSettings`)["0"].children[i].object;
     var str = `${obj.name}:${obj.count},${obj.order}`;
-    console.log(obj);
     
     for (let i = 0; i < obj.list.length; i++) {
         str = `${str},${buttonRename(obj.list[i])}`;
