@@ -2,10 +2,7 @@
 
 var addRandom=()=>{
     var sqeuenceAnzahl = prompt("Anzahl der Sequenzen") * 1;
-    if (sqeuenceAnzahl >= 9){
-        alert("Bitte kleiner als 9")
-        return null;
-    }else if(sqeuenceAnzahl != 0){
+    if(sqeuenceAnzahl != 0){
         var buttonAnzahl = prompt("Anzahl der Buttons pro Squenz")*1;
         if (buttonAnzahl != 0){
             var knobProzent = prompt("Wahrscheinlichkeit für Drehknöpfe in %")*1;
@@ -110,7 +107,7 @@ var addSequences = (data) =>{
                 if ($(`#sqSettings`)["0"].children[j].sequence == sqEID) {
                     cloneNode["0"].wert = data;
                     cloneNode["0"].children["0"].style.backgroundColor = "black";
-                    if (sqEID.slice(-1) * 1 < data.slice(-1) * 1) {
+                    if (sqEID.split("sqE")[1] * 1 < data.split("sqE")[1] * 1) {
                         $(`#${$(`#sqSettings`)["0"].children[j].result}`)["0"].appendChild(cloneNode["0"]);
                         getList($(`#sqSettings`)["0"].children[j].id);
                     } else {
