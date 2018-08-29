@@ -29,7 +29,7 @@ var addRandom=()=>{
 
 var changeRandomOrder = (home) =>{
     var order = false;
-    if (Math.floor(Math.random() * 2) >= 1) {
+    if (true) {
         order = true;
         for (let i = 0; i < $(`#squenceList`)["0"].children.length; i++) {
             if ($(`#squenceList`)["0"].children[i].className == "active") {

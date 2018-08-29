@@ -1,1 +1,0 @@
-sqE1:4,true,sqE2,sqE3,sqE4,sqE5;sqE2:3,false,Konsole2_Gelb_Button,Konsole1_Gruen_Button,Konsole4_Gelb_Button;sqE3:3,true,Konsole5_Blue_Button,Konsole2_Rot_Button,Konsole5_Rot_Button;sqE4:3,true,Konsole1_Gruen_Button,Konsole4_Rot_Button,Konsole3_Gruen_Button;sqE5:3,true,Konsole5_Gruen_Button,Konsole3_Rot_Button,Konsole1_Rot_Button;
