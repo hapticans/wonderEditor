@@ -12,11 +12,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
 </head>
-<body>
+<body id="body">
 
 <div class="container-fluid">
   	<div class="row content">
-		<div class="col-sm-2 sidenav">
+		<div class="col-sm-2 sidenav" id="hidebar">
 			<h4>Sequenzen</h4>
 			<ul id="squenceList" class="nav nav-pills nav-stacked" ondragstart="drag(event)">
 				<li class="active" onclick="changeSequence(sqS1.id)">
@@ -55,10 +55,16 @@
 				<input id="gpsinput" type="file" onchange="ReadFile(event)">
 			</div>
 			<div style="text-align: center;">
-				
 			</div>
 		</div>
-		<div class="col-sm-8"></div>
+		<div class="col-sm-8" id="hidecenter"></div>
+		<div class="col-sm-5" id="showcenter" style="display: none">
+			<div>
+				<a href="javascript:show()" id="eye">
+					<i class="fas fa-eye fa-6x text-center" style="color:purple; display: inline-block;"></i>
+				</a>
+			</div>
+		</div>
 		<div id="sqSettings">
 			<div id="sqS1" class="col-sm-8">
 				<h4 id="sqeuenceSettingName"></h4>
