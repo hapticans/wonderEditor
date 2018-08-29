@@ -19,7 +19,9 @@ var ReadFile = function (event) {
     reader.onload = function () {
 
         filecontent = reader.result; //coordinate data saved to this variable
-
+        var filename = document.getElementById("gpsinput").value.split("\\")[document.getElementById("gpsinput").value.split("\\").length - 1].split(".txt")[0];
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?id=${filename}`;
+        window.history.pushState({ path: newurl }, '', newurl);
         BuildArray();
 
     };
